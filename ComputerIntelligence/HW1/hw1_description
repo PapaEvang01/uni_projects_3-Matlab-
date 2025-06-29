@@ -1,1 +1,48 @@
+🧠 Computer Intelligence – Exercise 1: Knapsack Problem using Genetic Algorithms
+--------------------------------------------------------------------------------
+
+📌 Problem Description:
+The **Knapsack Problem** is a classical combinatorial optimization problem. Given a set of items, each with a specific weight and value, 
+the goal is to determine the most valuable combination of items that can fit within a knapsack of fixed capacity **W**.
+
+Formally:
+- Maximize total value ∑ vᵢ·xᵢ
+- Subject to: ∑ wᵢ·xᵢ ≤ W
+- Where xᵢ ∈ {0,1} indicates whether item i is included
+
+In this exercise, the problem is solved using **Genetic Algorithms (GAs)** in MATLAB.
+
+📁 File: `ga_kna.m`
+
+🧪 Implementation Details:
+- Total Items: 100
+- Weight vector: `weights` (1x100)
+- Value vector: `values` (1x100)
+- Max capacity of the knapsack: `W = 27`
+
+🔧 GA Parameters:
+- Population Size: 50
+- Max Generations: 100
+- Mutation Function: `mutationadaptfeasible`
+- Crossover Function: `crossoverarithmetic`
+
+🧮 Fitness Function:
+The fitness function rewards solutions with high total value, while applying a heavy penalty for violating the weight constraint using:
+fitness_func = @(x) -1 * (x * values' + (max_weight - x * weights') * 1000 * (max_weight < x * weights')) ...
+                         / max(x * values' + (max_weight - x * weights') * 1000 * (max_weight < x * weights'));
+
+% Comment on the Results:
+The output shows the indices of the items selected by the genetic algorithm
+to maximize the total value within the weight limit of the knapsack (W = 27).
+
+The reported total value is 1.000000 — this is a *normalized score* used in 
+the fitness function (due to the division by max value). It indicates that 
+the selected solution is considered optimal or near-optimal under the current 
+constraints and GA configuration.
+Due to the stochastic nature of Genetic Algorithms, running the code multiple 
+times may produce different combinations of items that yield the same or 
+similar final value. This variability is normal and reflects the exploratory 
+behavior of evolutionary optimization methods.
+
+
 
