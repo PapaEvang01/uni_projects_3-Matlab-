@@ -1,1 +1,62 @@
+Computer Intelligence – HW2
+---------------------------
+
+Title: Solving the Traveling Salesman Problem using Genetic Algorithms in MATLAB
+
+Description:
+------------
+This project addresses the well-known combinatorial optimization task known as the **Traveling Salesman Problem (TSP)**. 
+The objective is to find the shortest possible route that visits a set of cities exactly once and returns to the starting point.
+
+In this assignment, we solve the TSP using a **custom Genetic Algorithm (GA)** approach implemented in MATLAB.
+The cities are defined as 2D coordinates, and the GA evolves permutations of city orders (routes) over generations to minimize the total travel distance.
+
+Number of cities: 31  
+City coordinates: Defined manually in the script (`locations` matrix)  
+Optimization goal: Minimize total path distance through all cities
+
+The algorithm uses **custom operators** for:
+- Initial population generation
+- Permutation-based mutation
+- Permutation-based crossover
+- Real-time route visualization during optimization
+
+Implemented Files:
+------------------
+
+1. `tsp_main.m`  
+   The main script that initializes the city coordinates, computes the distance matrix, defines the GA configuration, and runs the optimization.
+
+2. `tsp_fitness.m`  
+   Custom fitness function that calculates the total tour length for a given route (permutation of cities), based on a precomputed distance matrix.
+
+3. `tsp_create_permutations.m`  
+   Custom population initialization function. Generates a population of random valid permutations (routes) of the cities.
+
+4. `tsp_mutate_permutation.m`  
+   Mutation function for GA. Applies a **swap mutation**: two random cities in the route are swapped to generate variation.
+
+5. `tsp_crossover_permutation.m`  
+   Crossover function for GA. Applies a **segment-reversal crossover**: a random subsegment of the parent is reversed to create the child.
+
+6. `tsp_traveling_salesman_plot.m`  
+   Custom plot function used during GA execution. Visualizes the current best route on a 2D city map at each generation.
+
+Results:
+--------
+The Genetic Algorithm runs for up to 1000 generations or until convergence.
+At each iteration, the shortest route found so far is updated and visualized.
+
+The final result includes:
+- The best route (city visiting order)
+- The total travel distance
+- A plot of the optimized route
+
+Remarks:
+--------
+This exercise demonstrates how evolutionary algorithms can be adapted to solve discrete optimization problems like the TSP. 
+The use of permutation-based encoding and custom operators ensures valid and efficient search through the space of possible routes.
+
+The modular structure of the code allows easy experimentation with different crossover, mutation, or selection strategies.
+
 
