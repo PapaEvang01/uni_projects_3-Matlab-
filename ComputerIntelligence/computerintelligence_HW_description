@@ -1,1 +1,74 @@
+🧠 Computer Intelligence – MATLAB Projects
+==========================================
+
+This folder contains a series of MATLAB exercises developed during the "Computer Intelligence" course. 
+Each homework focuses on a specific category of intelligent algorithms, including genetic algorithms (GAs) and neural networks (NNs). 
+All code is fully functional and includes clean logic, custom functions, and visual outputs.
+
+---
+
+📘 HW1 – Genetic Algorithm Applications
+--------------------------------------
+This homework includes three classic optimization problems solved using custom fitness functions and MATLAB's `ga()` solver.
+
+▶️ Exercise 1: Knapsack Problem  
+A genetic algorithm is used to solve a 0/1 knapsack optimization problem by maximizing value under a weight constraint.  
+📄 File: `ga_kna.m`
+
+▶️ Exercise 2: Card Partitioning Problem  
+15 cards are divided into 3 groups with specific sum/product constraints using GA.  
+📄 Files: `cards_using_ga.m`, `calc_penalty.m`
+
+▶️ Exercise 3: Solving a Cubic Equation  
+The GA finds a real root (with 3-digit precision) of the equation:  
+`x^3 + x^2 + x + 50 + AM = 0`  
+📄 File: `solve_cubic_ga.m`
+
+---
+
+📘 HW2 – Traveling Salesman Problem (TSP) via Genetic Algorithm
+---------------------------------------------------------------
+This project tackles the TSP using a custom GA with permutation-based encoding and operators.
+
+Key features:
+- Custom mutation, crossover, and initialization
+- 2D visualization of evolving routes
+- Distance matrix precomputed between cities
+
+📂 Files:
+- `tsp_main.m` – Main execution script
+- `tsp_fitness.m` – Fitness function (total path distance)
+- `tsp_create_permutations.m` – Initial random population
+- `tsp_mutate_permutation.m` – Swap-based mutation
+- `tsp_crossover_permutation.m` – Segment-reversal crossover
+- `tsp_traveling_salesman_plot.m` – Route visualization
+
+---
+
+📘 HW3 – Neural Network Applications
+-----------------------------------
+This homework includes two tasks solved with feedforward neural networks using MATLAB's `feedforwardnet` and `patternnet`.
+
+▶️ Exercise 1: Function Approximation  
+A neural network approximates the function:  
+`f(x, y) = 0.7 * e^cos(πx) + 0.3 * cos(2πy)`  
+The model is trained on 400 samples and visualized on a 3D grid.  
+📄 File: `function_approx_nn.m`
+
+▶️ Exercise 2: Binary Sequence Classification (Parity Problem)  
+A network classifies 6-bit binary inputs by checking if they contain an even number of 1’s.  
+📄 File: `parity_classifier_nn.m`
+
+---
+
+🧩 Summary
+---------
+Through these assignments, I gained hands-on experience in:
+- Designing and tuning genetic algorithms for constrained optimization
+- Creating permutation-based GAs for routing problems
+- Implementing neural networks for both regression and classification
+- Preprocessing, evaluating, and visualizing results in MATLAB
+
+This project reflects my applied understanding of intelligent computation and algorithmic problem-solving in MATLAB.
+
 
