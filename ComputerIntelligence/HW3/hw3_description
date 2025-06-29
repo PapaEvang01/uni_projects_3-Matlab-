@@ -1,1 +1,74 @@
+Computer Intelligence – HW3
+===========================
+
+This homework includes two exercises involving the design, training, and evaluation of neural networks in MATLAB, 
+targeting function approximation and binary classification problems.
+
+-------------------------------------------------------------------------------
+Exercise 1: Function Approximation using a Neural Network in MATLAB
+-------------------------------------------------------------------------------
+
+Description:
+------------
+In this exercise, we design and train a feedforward neural network (FFNN) in MATLAB to approximate the 2D function:
+
+    f(x, y) = 0.7 * e^cos(πx) + 0.3 * cos(2πy)
+
+The domain for both x and y is [-4, 4].
+
+A dataset of 400 samples was generated using a uniform grid over the domain. Each sample is a pair (x, y) and the corresponding target value f(x, y).
+
+Neural Network Architecture:
+----------------------------
+- Input layer: 2 inputs (x and y)
+- Hidden layer: 10 neurons with `tansig` activation
+- Output layer: 1 neuron with `purelin` (linear) activation
+
+Training Parameters:
+--------------------
+- Training algorithm: Levenberg-Marquardt (`trainlm`)
+- Learning rate: 0.05
+- Max epochs: 150
+- Goal MSE: 1e-5
+
+Evaluation:
+-----------
+After training, the network is tested on a 50×50 grid (2,500 points). The Mean Squared Error (MSE) is calculated and 3D surface plots are generated to visually compare the true function with the network's approximation.
+
+-------------------------------------------------------------------------------
+Exercise 2: Classification of Binary Sequences using Neural Network
+-------------------------------------------------------------------------------
+
+Description:
+------------
+This exercise focuses on training a neural network in MATLAB to solve a binary classification task commonly referred to as the "parity problem."
+
+Each input is a 6-bit binary sequence. The network must classify whether the number of 1's in the sequence is even or odd.
+
+Classification Rule:
+--------------------
+- Output = 1 → if the number of 1’s is even
+- Output = 0 → if the number of 1’s is odd
+
+Dataset:
+--------
+- All possible 6-bit sequences: 2^6 = 64 samples
+
+Neural Network Configuration:
+-----------------------------
+- Network Type: Feedforward (Pattern Recognition Network)
+- Function: `patternnet`
+- Input Layer: 6 neurons (binary input)
+- Hidden Layer: 10 neurons (`tansig` activation)
+- Output Layer: 1 neuron (sigmoid activation)
+- Training Algorithm: Levenberg-Marquardt (`trainlm`)
+- Loss Function: Mean Squared Error (MSE)
+
+Training and Testing:
+---------------------
+- Data split: 70% training, 15% validation, 15% testing
+- Predictions were thresholded to binary (0 or 1)
+- Final performance was evaluated using accuracy and confusion matrix
+
+The network learned the parity logic with high classification accuracy and minimal error.
 
