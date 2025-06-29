@@ -1,23 +1,27 @@
-🧠 Computer Intelligence – Exercise 1: Knapsack Problem using Genetic Algorithms
---------------------------------------------------------------------------------
+🧠 Computer Intelligence – HW1
+
+This homework consists of three MATLAB exercises focused on solving constrained optimization problems using Genetic Algorithms (GAs). ,
+The tasks explore practical applications of GAs in combinatorial optimization, constraint satisfaction, and real root finding.
+
+------------------------------------------------------------------------------------------
+Exercise 1: Knapsack Problem using Genetic Algorithms
+------------------------------------------------------------------------------------------
 
 📌 Problem Description:
-The **Knapsack Problem** is a classical combinatorial optimization problem. Given a set of items, each with a specific weight and value, 
-the goal is to determine the most valuable combination of items that can fit within a knapsack of fixed capacity **W**.
+The **Knapsack Problem** is a classical combinatorial optimization task. Given a set of items, each with a specific weight and value, 
+the goal is to determine the most valuable subset that fits within a knapsack of fixed capacity **W**.
 
 Formally:
 - Maximize total value ∑ vᵢ·xᵢ
 - Subject to: ∑ wᵢ·xᵢ ≤ W
 - Where xᵢ ∈ {0,1} indicates whether item i is included
 
-In this exercise, the problem is solved using **Genetic Algorithms (GAs)** in MATLAB.
-
 📁 File: `ga_kna.m`
 
 🧪 Implementation Details:
 - Total Items: 100
-- Weight vector: `weights` (1x100)
-- Value vector: `values` (1x100)
+- Weight vector: `weights` (1×100)
+- Value vector: `values` (1×100)
 - Max capacity of the knapsack: `W = 27`
 
 🔧 GA Parameters:
@@ -27,22 +31,65 @@ In this exercise, the problem is solved using **Genetic Algorithms (GAs)** in MA
 - Crossover Function: `crossoverarithmetic`
 
 🧮 Fitness Function:
-The fitness function rewards solutions with high total value, while applying a heavy penalty for violating the weight constraint using:
+The fitness function rewards high-value combinations and heavily penalizes solutions exceeding the weight limit:
+
 fitness_func = @(x) -1 * (x * values' + (max_weight - x * weights') * 1000 * (max_weight < x * weights')) ...
                          / max(x * values' + (max_weight - x * weights') * 1000 * (max_weight < x * weights'));
 
-% Comment on the Results:
-The output shows the indices of the items selected by the genetic algorithm
-to maximize the total value within the weight limit of the knapsack (W = 27).
+🗂️ Comment on the Results:
+The output shows the indices of the selected items that maximize total value under the weight constraint.
+Different runs may yield different combinations due to the stochastic nature of GAs.
 
-The reported total value is 1.000000 — this is a *normalized score* used in 
-the fitness function (due to the division by max value). It indicates that 
-the selected solution is considered optimal or near-optimal under the current 
-constraints and GA configuration.
-Due to the stochastic nature of Genetic Algorithms, running the code multiple 
-times may produce different combinations of items that yield the same or 
-similar final value. This variability is normal and reflects the exploratory 
-behavior of evolutionary optimization methods.
+------------------------------------------------------------------------------------------
+Exercise 2: Card Partitioning Problem with Constraints
+------------------------------------------------------------------------------------------
 
+📌 Problem Statement:
+Given 15 unique cards numbered from 1 to 15, divide them into 3 **non-overlapping** stacks such that:
 
+1. The sum of the first stack is **49**
+2. The sum of the second stack is **33**
+3. The product of the third stack is **12600**
 
+Each card must be used **once and only once**.
+
+📁 Files: `cards_using_ga.m`, `calc_penalty.m`
+
+🛠️ Approach:
+- The solution is encoded as a 15-element vector of integers in {1, 2, 3}, representing the stack assignment for each card.
+- A custom fitness function penalizes deviations from the required sums and product.
+- The GA searches for the optimal partition with zero total penalty.
+
+✅ The GA successfully finds valid groupings. Output examples show all constraints satisfied.
+
+------------------------------------------------------------------------------------------
+Exercise 3: Solving a Cubic Equation using Genetic Algorithm
+------------------------------------------------------------------------------------------
+
+📌 Problem:
+Find one real root of the cubic equation:
+
+    x^3 + x^2 + x + 50 + AM = 0
+
+Where `AM` is the sum of the last two digits of the student’s university ID. The root must lie in the interval [-10, 10] and be accurate to **three decimal places**.
+
+📁 File: `solve_cubic_ga.m`
+
+🛠️ Method:
+A Genetic Algorithm (GA) is used to minimize the absolute value of the function:
+
+    f(x) = x^3 + x^2 + x + 50 + AM
+
+- Variable: scalar x
+- Search Space: [-10, 10]
+- Fitness: |f(x)|
+- Target: f(x) ≈ 0 (accurate to 3 decimals)
+
+📌 Example Result (AM = 6):
+
+    Root found: x = -3.266
+    f(x) = -0.000327
+
+✅ The solution satisfies the equation within the required accuracy and shows how GAs can solve nonlinear root-finding problems.
+
+------------------------------------------------------------------------------------------
