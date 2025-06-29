@@ -9,11 +9,8 @@ options = optimoptions('ga', 'PopulationSize', 50, 'MaxGenerations', 100, 'Displ
 % Define fitness function
 fitness_func = @(x) -1 * (x * values' + (max_weight - x * weights') * 1000 * (max_weight < x * weights')) / max(x * values' + (max_weight - x * weights') * 1000 * (max_weight < x * weights'));
 
-
 % Solve using GA
 [x, fval] = ga(fitness_func, length(weights), [], [], [], [], zeros(length(weights), 1), ones(length(weights), 1), [], options);
-
-
 
 % Print results
 fprintf('Selected items: %s\n', num2str(find(x>0.5)));
