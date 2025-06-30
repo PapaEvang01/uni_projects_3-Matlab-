@@ -1,0 +1,20 @@
+SPSA-Based PID Controller Tuning – MATLAB Project
+
+This MATLAB project demonstrates how to tune a PID controller using the Simultaneous Perturbation Stochastic Approximation (SPSA) algorithm. 
+
+A second-order mass-spring-damper system is simulated in continuous time using ODEs. The goal is to minimize the tracking error to a step input using optimal controller gains.
+
+Main Files:
+- spsa_optimize_pid.m: Main script that runs SPSA and plots results
+- spsa.m: SPSA optimizer implementation
+- simulate_pid_response.m: Simulates PID response and returns error cost
+
+Concepts:
+- Control Systems (PID)
+- Stochastic Optimization
+- Numerical Simulation using ODE45
+
+Result:
+The system's output tracks the desired reference accurately after SPSA optimization.
+
+Author: Vaggelis Paps
