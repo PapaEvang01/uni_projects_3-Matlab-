@@ -1,0 +1,9 @@
+SPSA-PID Optimization Results
+-----------------------------
+Optimal PID Gains:
+Kp = 1.500000
+Ki = 0.000000
+Kd = 1.500000
+
+Final Cost (Objective Value): 1407.846311
+Saved on: 30-Jun-2025 19:45:50
