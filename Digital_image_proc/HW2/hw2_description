@@ -1,1 +1,55 @@
+Digital Image Processing  
+HW2 – Progressive Image Fusion using wfusimg in YCbCr and HSV
+
+This homework continues the topic of multi-image fusion by processing four different RGB images of the same outdoor scene (different from HW1), 
+using MATLAB’s built-in wavelet fusion function `wfusimg`. Fusion is applied progressively across all four images, using two different color models: YCbCr and HSV.
+
+──────────────────────────────────────────────
+🔹 1. YCbCr-based Fusion
+
+The RGB images are first converted to the YCbCr color space. Fusion is applied on the Cr channel, which contains fine chromatic detail.
+
+Steps:
+1. Convert all 4 images from RGB to YCbCr.
+2. Apply histogram equalization to the Y channel (luminance) to enhance contrast.
+3. Perform progressive wavelet fusion on the Cr channel:
+   - Fuse Image 1 and Image 2 → Cr_12
+   - Fuse Cr_12 with Image 3 → Cr_123
+   - Fuse Cr_123 with Image 4 → Cr_1234
+4. Combine the final fused Cr result with the Y and Cb channels (from one of the original images).
+5. Convert the fused YCbCr image back to RGB for display and saving.
+
+📌 Fusion parameters:
+- Wavelet: 'db6'
+- Approximation method: 'max'
+- Detail method: 'max'
+
+──────────────────────────────────────────────
+🔹 2. HSV-based Fusion
+
+Here, the RGB images are converted to HSV color space. Fusion is performed on the Saturation (S) channel, which captures color richness.
+
+Steps:
+1. Convert all 4 images from RGB to HSV.
+2. Apply histogram equalization to the Value (V) channel to normalize brightness.
+3. Perform progressive wavelet fusion on the S channel:
+   - Fuse Image 1 and Image 2 → S_12
+   - Fuse S_12 with Image 3 → S_123
+   - Fuse S_123 with Image 4 → S_1234
+4. Reconstruct the final HSV image using:
+   - The fused S channel
+   - H and V channels from any original image
+5. Convert the final fused HSV image back to RGB.
+
+──────────────────────────────────────────────
+🎯 Goal:
+
+This project demonstrates an efficient method for performing multi-stage image fusion using MATLAB’s wavelet tools.
+It also compares fusion results in two different color spaces, showcasing the visual and perceptual differences depending on the fusion strategy.
+
+──────────────────────────────────────────────
+📁 Files:
+- fusion_YCbCr_wfusimg.m
+- fusion_HSV_wfusimg.m
+- Includes intermediate and final fusion results
 
