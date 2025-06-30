@@ -1,0 +1,51 @@
+📁 Digital Image Processing – HW3
+🧠 Otsu's Thresholding: Custom vs Built-in Comparison
+
+This homework explores and compares two implementations of Otsu’s image thresholding algorithm using MATLAB. 
+We apply both approaches on two sample images (Leaf.jpeg and Tower.jpeg) and perform a structured evaluation of their outputs.
+
+===========================================================================================================================
+1. Custom Otsu Implementation
+In the first part, we implemented Otsu’s method from scratch:
+
+-Converted the RGB images to grayscale.
+-Calculated the optimal threshold by maximizing the inter-class variance.
+-Binarized the image manually using the computed threshold.
+-Saved the output as:
+i)Leaf_Otsu.png
+ii)Tower_Otsu.png
+
+This exercise deepened our understanding of the internal logic behind Otsu’s method and how thresholding decisions are made based on histogram distributions.
+
+===========================================================================================================================
+⚙️ 2. Built-in MATLAB Otsu (graythresh)
+Next, we used MATLAB’s built-in tools:
+
+-Used graythresh() to find the optimal threshold (in the range [0, 1]).
+-Applied imbinarize() for automatic segmentation.
+-Saved the results as:
+i)Leaf_Otsu_builtin.png
+ii)Tower_Otsu_builtin.png
+
+This method is more concise and demonstrates how MATLAB simplifies common image processing tasks with ready-made functions.
+
+ =========================================================================================================================== 
+📊 3. Comparative Analysis
+To evaluate and compare the two methods:
+
+Visual Comparison: Displayed binary results side-by-side.
+Quantitative Metrics-->Calculated MSE (Mean Squared Error) and SSIM (Structural Similarity Index) between the two results.
+
+Histogram Analysis-->Plotted grayscale histograms.
+
+Overlaid both thresholds (custom in 0–255 scale, built-in in 0–1 scale) to visually inspect differences in decision boundaries.
+
+===========================================================================================================================
+📚 What I Learned
+Through this hands-on exercise, I gained:
+
+-A deeper understanding of threshold-based segmentation.
+-Experience implementing histogram-based algorithms manually.
+-Practical skills in evaluating image processing techniques both visually and numerically.
+-Familiarity with MATLAB’s image toolbox and built-in functions.
+
