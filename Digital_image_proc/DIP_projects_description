@@ -1,1 +1,69 @@
+📁 Digital Image Processing – MATLAB Projects
+These projects were completed as part of a university course on Digital Image Processing. 
+They demonstrate the use of MATLAB for multi-resolution image fusion and segmentation techniques, including wavelets and Otsu’s thresholding.
+
+1. HW1 – Image Fusion with Wavelets (YCbCr & HSV)
+This homework focuses on fusing three RGB images of the same scene taken at different times of the day. 
+The goal is to enhance visual quality by combining details from all images using wavelet transforms.
+
+🔹 YCbCr Method
+-Converts RGB to YCbCr.
+-Applies histogram equalization to the Y (luminance) channel.
+-Performs 2-level wavelet decomposition on the Cr channel (db6 wavelet).
+-Fuses using a custom maxa() rule from the book: “Ψηφιακή Επεξεργασία και Ανάλυση Εικόνας,” Ν. Παπαμάρκος
+-Reconstructs Cr, combines with Y and Cb, converts back to RGB.
+
+🔹 HSV Method
+-Converts RGB to HSV.
+-Equalizes the V (brightness) channel.
+-Applies wavelet fusion on the S (saturation) channel.
+-Reconstructs HSV and converts to RGB.
+
+2. HW2 – Progressive Image Fusion with wfusimg (YCbCr & HSV)
+In this task, four images of a different outdoor scene are progressively fused using MATLAB’s built-in function wfusimg.
+
+🔹 YCbCr Fusion
+RGB → YCbCr
+-Equalizes Y channel.
+-Progressive wavelet fusion on the Cr channel:
+-1+2 → +3 → +4
+-Final Cr is combined with Y and Cb.
+-Converts back to RGB.
+
+🔹 HSV Fusion
+-RGB → HSV
+-Equalizes V channel.
+-Progressive fusion on the S channel.
+-Fused S combined with original H and V.
+-Converts back to RGB.
+
+! Fusion Settings:
+Wavelet: 'db6', Approximation method: 'max', Detail method: 'max'
+
+3. HW3 – Otsu’s Thresholding: Custom vs Built-in
+This project explores Otsu's method for image binarization using two RGB images: Leaf and Tower.
+
+🔹 Part 1 – Custom Otsu Implementation
+-Converts RGB → Grayscale
+-Implements Otsu’s method from scratch (maximizing inter-class variance)
+-Applies threshold manually and saves results
+
+🔹 Part 2 – MATLAB Built-in
+-Uses graythresh() to get Otsu threshold
+-Applies imbinarize() to binarize image
+-Saves results for both images
+
+🔹 Part 3 – Comparison
+-Visual Comparison of binary results
+-Quantitative Analysis using:
+-MSE (Mean Squared Error)
+-SSIM (Structural Similarity Index)
+-Histogram Overlay of threshold values (0–255 vs 0–1)
+
+📌 Key Takeaways
+-Gained practical experience in color space transformations (RGB ↔ YCbCr/HSV)
+-Learned how to apply wavelet-based fusion using both custom logic and built-in tools
+-Understood how Otsu’s method works internally and how to evaluate segmentation quality
+-Developed complete workflows for visual and quantitative comparison of image processing techniques
+
 
