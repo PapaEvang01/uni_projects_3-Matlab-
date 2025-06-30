@@ -1,18 +1,40 @@
-SPSA-Based PID Controller Tuning – MATLAB Project
+Homework 1 – SPSA-Based PID Controller Optimization
+---------------------------------------------------
+Course: Controllers (University-Level)
+Topic: Control Systems + Optimization
+Language: MATLAB
 
-This MATLAB project demonstrates how to tune a PID controller using the Simultaneous Perturbation Stochastic Approximation (SPSA) algorithm. 
+📌 Objective:
+The goal of this assignment was to implement and optimize a PID controller for a second-order dynamic system using the Simultaneous Perturbation Stochastic Approximation (SPSA) algorithm.
 
-A second-order mass-spring-damper system is simulated in continuous time using ODEs. The goal is to minimize the tracking error to a step input using optimal controller gains.
+We aimed to automatically tune the PID gains (Kp, Ki, Kd) to minimize the tracking error of the system response to a step input, while avoiding overshoot and long settling time.
 
-Main Files:
-- spsa_optimize_pid.m: Main script that runs SPSA and plots results
-- spsa.m: SPSA optimizer implementation
-- simulate_pid_response.m: Simulates PID response and returns error cost
+🛠️ What was implemented:
+- A simulation model of a second-order system (mass-spring-damper style).
+- A PID controller with anti-windup and saturation handling.
+- A cost function based on ISE (Integral of Squared Error), settling error, and overshoot penalty.
+- The SPSA algorithm for iterative gain tuning.
+- A visualization of the system response after optimization.
+- A logger to save the final results (PID gains and cost) into a `.txt` file.
 
-Concepts:
-- Control Systems (PID)
-- Stochastic Optimization
-- Numerical Simulation using ODE45
+⚙️ Key Techniques Used:
+- ODE45 for time-domain simulation
+- SPSA (stochastic optimizer using only 2 cost evaluations per iteration)
+- Gradient-free learning in constrained parameter space
+- System output analysis (settling time, overshoot)
 
-Result:
-The system's output tracks the desired reference accurately after SPSA optimization.
+🧪 Output:
+- Optimal PID gains (typically in [0, 1.5] range)
+- A plot showing the system tracking a reference step
+- Logged file containing:
+    • Best PID gains
+    • Final cost value
+    • Timestamp of run
+
+🎯 Skills Demonstrated:
+- Control theory and simulation
+- Parameter optimization
+- Algorithm implementation (SPSA)
+- MATLAB scripting and modular programming
+- Result evaluation and automatic logging
+
