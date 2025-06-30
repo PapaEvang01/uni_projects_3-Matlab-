@@ -1,1 +1,33 @@
+Digital Image Processing – HW1
+🌅 Image Fusion with Wavelets (YCbCr & HSV Methods)
+
+This homework explores image fusion using multi-resolution wavelet techniques in MATLAB, applied to three RGB images of the same scene captured at different times of day. The goal is to enhance visual information by combining details from all images into one high-quality fused image. Two color spaces are used: YCbCr and HSV.
+
+1) YCbCr-Based Image Fusion
+
+-Converts RGB images to YCbCr color space
+-Applies histogram equalization to the Y (luminance) channel
+-Uses a 2-level wavelet decomposition (db6) on the Cr channel
+-Fuses coefficients using a maximum absolute value rule, following the logic from:
+📖 "Ψηφιακή Επεξεργασία και Ανάλυση Εικόνας," 3η Έκδοση, Ν. Παπαμάρκος
+-Reconstructs the fused Cr channel, combines with original Y and Cb
+-Converts the result back to RGB for visualization
+
+🎯 This method produces visually enhanced images with preserved color details and improved contrast.
+
+2) HSV-Based Image Fusion
+
+-Converts RGB images to HSV color space
+-Performs histogram equalization on the V (brightness) channel
+-Decomposes the S (saturation) channel using 2-level wavelet transform (db6)
+-Fuses coefficients using the same maximum absolute strategy
+-Combines the fused S with original H and equalized V to rebuild HSV
+-Converts final result back to RGB
+
+🎯 This method focuses on enhancing brightness and saturation balance across differently lit images.
+
+Output:
+Fused images from both methods are saved in the respective folders
+Useful in fields like HDR photography, remote sensing, and surveillance
+
 
