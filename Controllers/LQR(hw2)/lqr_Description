@@ -38,6 +38,3 @@ The optimized gain matrix K and the simulation results are saved automatically t
 - Plotting and file logging
 
 This assignment showcases optimal control design using LQR and contrasts with HW1, where PID control was tuned using SPSA.
-
-Author: Vaggelis Paps
-
