@@ -11,7 +11,7 @@ Each folder represents a standalone project or homework assignment, complete wit
 
 ---
 
-## 🧠 Computer Intelligence – MATLAB Projects
+## 1. Computer Intelligence – MATLAB Projects
 Projects developed during the **Computer Intelligence** course. Each assignment focuses on intelligent algorithms such as Genetic Algorithms (GA) and Neural Networks (NN).
 
 ### 📘 HW1 – Genetic Algorithm Applications
@@ -35,7 +35,7 @@ Two feedforward NN tasks:
 
 ---
 
-## 🕹️ Controllers – MATLAB Projects
+## 2. Controllers – MATLAB Projects
 Completed as part of the **Controllers** course. These projects involve designing feedback controllers for second-order systems.
 
 ### 📘 HW1 – SPSA-Based PID Controller Optimization
@@ -65,7 +65,7 @@ Uses **Linear Quadratic Regulation (LQR)** to design an optimal state-feedback c
 
 ---
 
-## 🖼️ Digital Image Processing – MATLAB Projects
+## 3. Digital Image Processing – MATLAB Projects
 Projects developed during the **Digital Image Processing** course, focused on wavelet-based fusion and image segmentation.
 
 ### 📘 HW1 – Image Fusion (YCbCr & HSV)
