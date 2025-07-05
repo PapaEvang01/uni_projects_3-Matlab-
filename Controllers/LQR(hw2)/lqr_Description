@@ -1,1 +1,43 @@
+LQR Controller Design – Second-Order System
+-------------------------------------------
+
+This project implements an optimal state-feedback controller using the Linear Quadratic Regulator (LQR) method to 
+stabilize a second-order dynamic system modeled after a mass-spring-damper.
+
+📌 Problem Statement:
+We are given a continuous-time second-order system of the form:
+
+    y'' + 2ζω_n y' + ω_n² y = u(t)
+
+The goal is to design a controller that:
+- Brings the system output y(t) to zero efficiently
+- Minimizes both the state error and control effort
+
+🛠️ Approach:
+The system is first expressed in state-space form:
+
+    ẋ = A·x + B·u
+
+We then apply the LQR method to compute an optimal feedback gain K that minimizes the quadratic cost function:
+
+    J = ∫ (xᵀQx + uᵀRu) dt
+
+The control law is defined as:
+
+    u(t) = -K·x(t)
+
+✅ Outcome:
+The result is a smooth and stable system response with minimal overshoot and control energy. 
+The optimized gain matrix K and the simulation results are saved automatically to a .txt file for documentation.
+
+🧰 Tools Used:
+- MATLAB
+- State-space modeling
+- LQR control (`lqr` function)
+- `ode45` for simulation
+- Plotting and file logging
+
+This assignment showcases optimal control design using LQR and contrasts with HW1, where PID control was tuned using SPSA.
+
+Author: Vaggelis Paps
 
