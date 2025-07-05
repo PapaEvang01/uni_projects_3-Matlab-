@@ -1,7 +1,9 @@
-LQR Controller Design – Second-Order System
--------------------------------------------
+Homework 2 – LQR Controller Design for a Second-Order System
+------------------------------------------------------------
 
-This project implements an optimal state-feedback controller using the Linear Quadratic Regulator (LQR) method to 
+This project was developed during my university studies as part of the "Controllers" course.
+
+It implements an optimal state-feedback controller using the Linear Quadratic Regulator (LQR) method to 
 stabilize a second-order dynamic system modeled after a mass-spring-damper.
 
 📌 Problem Statement:
@@ -11,30 +13,40 @@ We are given a continuous-time second-order system of the form:
 
 The goal is to design a controller that:
 - Brings the system output y(t) to zero efficiently
-- Minimizes both the state error and control effort
+- Minimizes both the state error and the control effort
 
 🛠️ Approach:
-The system is first expressed in state-space form:
+The system is expressed in state-space form:
 
     ẋ = A·x + B·u
 
-We then apply the LQR method to compute an optimal feedback gain K that minimizes the quadratic cost function:
+Then we apply the LQR method to compute an optimal feedback gain K that minimizes the quadratic cost function:
 
     J = ∫ (xᵀQx + uᵀRu) dt
 
-The control law is defined as:
+The resulting control law is:
 
     u(t) = -K·x(t)
 
-✅ Outcome:
-The result is a smooth and stable system response with minimal overshoot and control energy. 
-The optimized gain matrix K and the simulation results are saved automatically to a .txt file for documentation.
+We simulate the closed-loop system using MATLAB's `ode45` solver.
 
-🧰 Tools Used:
+✅ Outcome:
+The result is a smooth and stable response with minimal overshoot and small control effort.
+The optimized gain matrix K and the final state are saved automatically to a `.txt` log file.
+
+🧰 Tools & Files:
 - MATLAB
 - State-space modeling
-- LQR control (`lqr` function)
-- `ode45` for simulation
-- Plotting and file logging
+- LQR controller design (`lqr`)
+- Numerical simulation (`ode45`)
+- Automatic result logging
 
-This assignment showcases optimal control design using LQR and contrasts with HW1, where PID control was tuned using SPSA.
+📄 Files in this project:
+- `lqr_controller_design.m` – Main script for LQR setup, simulation, plotting, and saving
+- `simulate_lqr_response.m` – Simulates the closed-loop response
+- `save_lqr_results.m` – Saves optimal K and final state to a text file
+- `lqr_results.txt` – Output file with gain matrix and final state
+-  example Output (lqr_results.txt):
+
+
+This assignment showcases optimal control design using LQR, in contrast to HW1 which explored PID tuning via stochastic optimization (SPSA).
