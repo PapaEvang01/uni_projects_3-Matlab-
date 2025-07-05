@@ -1,1 +1,71 @@
+Controllers – MATLAB Projects Summary
+======================================
 
+These two assignments were completed during my university-level course on Control Systems. 
+Both projects involve the design, simulation, and evaluation of feedback controllers for 
+second-order dynamic systems using MATLAB.
+
+---
+Homework 1 – SPSA-Based PID Controller Optimization
+---------------------------------------------------
+🧠 Goal:
+Design and tune a PID controller for a second-order system using the SPSA (Simultaneous Perturbation Stochastic Approximation)
+algorithm to minimize tracking error, overshoot, and settling time.
+
+🔧 What Was Done:
+- Modeled a mass-spring-damper system.
+- Implemented a PID controller with anti-windup and saturation.
+- Defined a custom cost function combining ISE and overshoot penalty.
+- Applied the SPSA optimization algorithm (gradient-free).
+- Simulated and plotted system response.
+- Saved the final PID gains and cost to a text file.
+
+📁 Files:
+- `spsa_optimize_pid.m` – Main script to run optimization
+- `simulate_pid_response.m` – System dynamics + cost evaluation
+- `spsa.m` – SPSA algorithm
+- `pid_results.txt` – Final gains, cost, timestamp
+
+🧪 Output:
+- Optimized PID gains (e.g., Kp, Ki, Kd)
+- Step response plot
+- Log file of results
+
+---
+Homework 2 – LQR Controller Design for a Second-Order System
+-------------------------------------------------------------
+🧠 Goal:
+Design an optimal state-feedback controller using Linear Quadratic Regulation (LQR) 
+to stabilize the same second-order system with minimal effort.
+
+🔧 What Was Done:
+- Modeled the system in state-space form.
+- Used MATLAB’s `lqr` function to compute the gain matrix K.
+- Simulated the closed-loop system using `ode45`.
+- Plotted the system output and control signal.
+- Logged the optimal gain and final state.
+
+📁 Files:
+- `lqr_controller_design.m` – Main script
+- `simulate_lqr_response.m` – Closed-loop simulation
+- `save_lqr_results.m` – Logs results to file
+- `lqr_results.txt` – Output with optimal K and final state
+
+🧪 Output:
+- Gain matrix K (e.g., [0.1264  0.0144])
+- Final state (should be near zero)
+- System response and control input plots
+- Log file of results
+
+---
+
+! Key Techniques Across Both Projects:
+- Second-order system modeling (mass-spring-damper)
+- Feedback controller design (PID and LQR)
+- MATLAB ODE simulation (`ode45`)
+- Optimization: gradient-free tuning (SPSA) vs. matrix optimization (LQR)
+- Result logging, code modularization, and plotting
+
+These two controllers contrast beautifully:
+- HW1 uses iterative tuning with no system model
+- HW2 uses full state-space knowledge to compute the optimal control law
